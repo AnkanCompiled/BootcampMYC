@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "5dfb7578-5fa9-4db3-80c1-aa794507ac86",
+		"name": "BootCamp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37721606"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"name\": \"TEST USER\",\r\n \"email\": \"user@example.com\",\r\n \"password\": \"Password123\",\r\n \"role\": \"admin\",\r\n \"address\": {\r\n \"street\": \"123 Main St\",\r\n \"city\": \" Springfield \",\r\n \"state\": \"IL\",\r\n \"zip\": \"62701\"\r\n }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"email\": \"user@example.com\",\r\n \"password\": \"Password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/user/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddTour",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n\"name\": \"Amazing Europe Tour\",\r\n\"location\": \"Europe\",\r\n\"tourType\": \"Adventure\",\r\n\"price\": 1500,\r\n\"description\": \"An exciting adventure tour across Europe.\",\r\n\"itinerary\": [\r\n{\r\n\"day\": 1,\r\n\"description\": \"Arrival in Paris and evening city tour.\"\r\n},\r\n{\r\n\"day\": 2,\r\n\"description\": \"Visit to the Eiffel Tower and Louvre Museum.\"\r\n}\r\n]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/admin/addTourPackage",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"addTourPackage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTour",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"Amazing Europe Tour\",\r\n\"location\": \"Europe\",\r\n\"tourType\": \"Adventure\",\r\n\"price\": 1500,\r\n\"description\": \"An exciting adventure tour across Europe.\",\r\n\"itinerary\": [\r\n{\r\n\"day\": 1,\r\n\"description\": \"Arrival in Paris and evening city tour.\"\r\n},\r\n{\r\n\"day\": 2,\r\n\"description\": \"Visit to the Eiffel Tower and Louvre Museum.\"\r\n}\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/admin/updateTourPackage/66dd4ece108ebfe482d2140c",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"updateTourPackage",
+						"66dd4ece108ebfe482d2140c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTour",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/admin/updateTourPackage/66dd4ece108ebfe482d2140c",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"admin",
+						"updateTourPackage",
+						"66dd4ece108ebfe482d2140c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchTour",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "NewBooking",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZGQ2ZDhjMDExNjY4YmNjZDc0ZTgwNCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTc5MjUyNiwiZXhwIjoxNzI1Nzk2MTI2fQ._mK7njLT7KLg6y4VK8owXQ1gMl7fRfTQj2T6nDylPxg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/user/bookTour/66dd6d8c011668bccd74e804",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"bookTour",
+						"66dd6d8c011668bccd74e804"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Booking",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
