@@ -1,24 +1,11 @@
 const express = require("express");
-const User = require("../model/userModel");
+const userController = require("../controllers/userController");
+const { authenticate } = require("../middlewares/authMiddleware.js");
 
 const router = express.Router();
 
-router.get("/", async (req, res, next) => {
-  try {
-    const users = await User.find();
-    res.status(200).json(users);
-  } catch (err) {
-    next(err);
-  }
-});
-
-router.get("/:email", async (req, res, next) => {
-  try {
-    const users = await User.findOne({ email: req.params.email });
-    res.status(200).json(users);
-  } catch (err) {
-    next(err);
-  }
-});
+router.post("/register", userController.registerUser);
+router.post("/login", userController.loginUser);
+router.get("/profile", authenticate, userController.getUserDetails);
 
 module.exports = router;
